@@ -1,40 +1,17 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
-
-  useEffect(() => {
-    fetchCars();
-  }, [token]);
-
-  const fetchCars = async () => {
-    try {
-      let response = await axios.get("https://localhost:5001/api/cars/myCars", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      setCars(response.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
-  };
 
   return (
     <div className="container">
-      {console.log(user)}
-      <h1>Home Page for {user.userName}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
+      <h2>Welcome to your Home Page {user.userName}!</h2>
+      <h4>Please navigate to the search page link to begin your search!</h4>
+
+      {/* Link to the search page */}
+      <Link to="/SearchPage">Go to Search Page</Link>
     </div>
   );
 };
