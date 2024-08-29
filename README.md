@@ -1,4 +1,4 @@
-# 📚 React/ASP.NET JWT Starter
+# 📚 Book library / React/ASP.NET JWT
 
 This project is Book library using **React** for the frontend and **ASP.NET Core** for the backend, utilizing **JWT (JSON Web Tokens)** for authentication. The application allows users to register, log in, and search for books using the Google Books API.
 
